@@ -1,5 +1,5 @@
 %global         date 20120220
-%global         gitcommit 4dc4b77
+%global         gitcommit fc6a9e4
 %global         realver 2.0
 
 
