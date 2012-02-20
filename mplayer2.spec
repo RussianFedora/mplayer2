@@ -10,7 +10,7 @@ Summary:        Movie player playing most video formats and DVDs
 
 License:        GPLv3+
 URL:            http://www.mplayer2.org/
-Source0:        mplayer2-build.tar.xz
+Source0:        mplayer2-build-%{realver}.tar.xz
 #Source1:        mplayer.conf
 
 BuildRequires:  yasm
