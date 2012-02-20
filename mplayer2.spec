@@ -1,9 +1,11 @@
-%define         git_ver d937de7
+%global         date 20120220
+%global         gitcommit 4dc4b77
+%global         realver 2.0
 
 
 Name:           mplayer2
-Version:        2.0
-Release:        1.git%{?dist}.R
+Version:        %{realver}.%{date}git%{gitcommit}
+Release:        1%{?dist}.R
 Summary:        Movie player playing most video formats and DVDs
 
 License:        GPLv3+
@@ -73,7 +75,7 @@ of features not available in other Unix players, such
 as Matroska external chapters.
 
 %prep
-%setup -q -n mplayer2-build_0
+%setup -q -n mplayer2-build-2.0
 
 echo "--prefix=%{_prefix}
 --bindir=%{_bindir}
