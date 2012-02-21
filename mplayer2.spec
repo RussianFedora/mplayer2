@@ -105,21 +105,28 @@ make %{?_smp_mflags}
 rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 
+# move man pages and bindir
+mv $RPM_BUILD_ROOT%{_bindir}/mplayer $RPM_BUILD_ROOT%{_bindir}/%{name}
+
+find $RPM_BUILD_ROOT%{_mandir} -name "mplayer*" | while read -r file; do \
+    mv $file $(echo "$file" | sed -e "s/mplayer.1/mplayer2.1/"); \
+done
+
 %files
 %defattr(-, root, root, -)
 %doc mplayer/AUTHORS mplayer/Copyright mplayer/LICENSE
-%{_bindir}/mplayer
-%dir %{_sysconfdir}/mplayer2
-%{_mandir}/man1/mplayer.1*
-%lang(cs) %{_mandir}/cs/man1/mplayer.1*
-%lang(de) %{_mandir}/de/man1/mplayer.1*
-%lang(es) %{_mandir}/es/man1/mplayer.1*
-%lang(fr) %{_mandir}/fr/man1/mplayer.1*
-%lang(hu) %{_mandir}/hu/man1/mplayer.1*
-%lang(it) %{_mandir}/it/man1/mplayer.1*
-%lang(pl) %{_mandir}/pl/man1/mplayer.1*
-%lang(ru) %{_mandir}/ru/man1/mplayer.1*
-%lang(zh_CN) %{_mandir}/zh_CN/man1/mplayer.1*
+%{_bindir}/%{name}
+%dir %{_sysconfdir}/%{name}
+%{_mandir}/man1/%{name}.1*
+%lang(cs) %{_mandir}/cs/man1/%{name}.1*
+%lang(de) %{_mandir}/de/man1/%{name}.1*
+%lang(es) %{_mandir}/es/man1/%{name}.1*
+%lang(fr) %{_mandir}/fr/man1/%{name}.1*
+%lang(hu) %{_mandir}/hu/man1/%{name}.1*
+%lang(it) %{_mandir}/it/man1/%{name}.1*
+%lang(pl) %{_mandir}/pl/man1/%{name}.1*
+%lang(ru) %{_mandir}/ru/man1/%{name}.1*
+%lang(zh_CN) %{_mandir}/zh_CN/man1/%{name}.1*
 
 
 %changelog
