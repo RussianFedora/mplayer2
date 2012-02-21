@@ -22,7 +22,6 @@ BuildRequires:  libXxf86vm-devel
 BuildRequires:  lirc-devel
 BuildRequires:  libXScrnSaver-devel
 BuildRequires:  libXv-devel
-#BuildRequires:  libXvMC-devel
 BuildRequires:  libvdpau-devel
 BuildRequires:  libXxf86dga-devel
 BuildRequires:  aalib-devel
@@ -35,7 +34,6 @@ BuildRequires:  pulseaudio-lib-devel
 BuildRequires:  libbluray-devel
 BuildRequires:  libdvdnav-devel
 BuildRequires:  cdparanoia-devel
-BuildRequires:  libass-devel
 BuildRequires:  enca-devel
 BuildRequires:  libmad-devel
 BuildRequires:  libvorbis-devel
