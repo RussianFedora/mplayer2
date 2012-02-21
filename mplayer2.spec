@@ -53,6 +53,7 @@ BuildRequires:  live555-devel
 BuildRequires:  libdv-devel >= 0.9.5
 BuildRequires:  xvidcore-devel
 BuildRequires:  libtool
+BuildRequires:  libva-devel
 
 #BuildRequires:  em8300-devel
 #BuildRequires:  fribidi-devel
@@ -83,7 +84,6 @@ echo "--prefix=%{_prefix}
 --confdir=%{_sysconfdir}/mplayer2
 --libdir=%{_libdir}
 --codecsdir=%{_libdir}/codecs
---enable-debug=3
 --extra-cflags=$RPM_OPT_FLAGS
 --enable-radio
 --enable-radio-capture
@@ -92,6 +92,22 @@ echo "--prefix=%{_prefix}
 --language-man=all
 --enable-runtime-cpudetection
 " >> mplayer_options
+
+echo "--enable-vaapi
+--enable-runtime-cpudetect
+" >> libav_options
+
+sed -i -e "s|'--disable-devices', '--disable-vaapi'|'--disable-devices'|" "script/libav-config" ;
+
+# fix man pages not being UTF8
+doconv() {
+    iconv -f $1 -t $2 -o mplayer/DOCS/man/$3/mplayer.1.utf8 mplayer/DOCS/man/$3/mplayer.1 && \
+    mv mplayer/DOCS/man/$3/mplayer.1.utf8 mplayer/DOCS/man/$3/mplayer.1
+}
+
+for lang in de es fr it ; do doconv iso-8859-1 utf-8 $lang ; done
+for lang in hu pl ; do doconv iso-8859-2 utf-8 $lang ; done
+for lang in ru ; do doconv koi8-r utf-8 $lang ; done
 
 
 %build
