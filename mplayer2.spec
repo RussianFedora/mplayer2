@@ -64,8 +64,6 @@ BuildRequires:  xvidcore-devel
 #BuildRequires:  x264-devel >= 0.0.0-0.28
 #BuildRequires:  libvpx-devel
 
-#This provides mplayer
-Provides: mplayer
 
 %description
 MPlayer2 is an advanced general-purpose video player.
@@ -111,9 +109,6 @@ make install DESTDIR=$RPM_BUILD_ROOT
 %doc mplayer/AUTHORS mplayer/Copyright mplayer/LICENSE
 %{_bindir}/mplayer
 %dir %{_sysconfdir}/mplayer2
-#%config(noreplace) %{_sysconfdir}/mplayer2/mplayer.conf
-#%config(noreplace) %{_sysconfdir}/mplayer2/input.conf
-#%config(noreplace) %{_sysconfdir}/mplayer2/menu.conf
 %{_mandir}/man1/mplayer.1*
 %lang(cs) %{_mandir}/cs/man1/mplayer.1*
 %lang(de) %{_mandir}/de/man1/mplayer.1*
@@ -127,13 +122,5 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 
 %changelog
-* Sat Jul 16 2010 Martin Sourada <mso@fedoraproject.org> - 2.0-3
-- Move config files as well
-
-* Sat Jul 16 2010 Martin Sourada <mso@fedoraproject.org> - 2.0-2
-- Move manual pages to mplayer2.1 to avoid clash with mplayer-common
-
-* Wed Mar 30 2010 Martin Sourada <mso@fedoraproject.org> - 2.0-1
-- MPlayer2-2.0 released
-- Disable internal mp3lib as it's broken
-- Include default config files, set pulse as default audio output
+* Tue Feb 21 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0.20120220gitfc6a9e4-1.R
+- Initial release for Fedora
