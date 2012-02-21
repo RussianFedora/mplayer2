@@ -14,7 +14,6 @@ Source0:        mplayer2-build-%{realver}.git.tar.xz
 #Source1:        mplayer.conf
 
 BuildRequires:  yasm
-BuildRequires:  ffmpeg-devel
 BuildRequires:  alsa-lib-devel
 BuildRequires:  fontconfig-devel
 BuildRequires:  freetype-devel >= 2.0.9
