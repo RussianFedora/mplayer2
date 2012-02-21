@@ -75,7 +75,7 @@ of features not available in other Unix players, such
 as Matroska external chapters.
 
 %prep
-%setup -q -n mplayer2-build-2.0
+%setup -q -n mplayer2-build-2.0.git
 
 echo "--prefix=%{_prefix}
 --bindir=%{_bindir}
