@@ -52,6 +52,7 @@ BuildRequires:  libnemesi-devel
 BuildRequires:  live555-devel
 BuildRequires:  libdv-devel >= 0.9.5
 BuildRequires:  xvidcore-devel
+BuildRequires:  libtool
 
 #BuildRequires:  em8300-devel
 #BuildRequires:  fribidi-devel
