@@ -54,7 +54,7 @@ BuildRequires:  libtool
 BuildRequires:  libva-devel
 
 #BuildRequires:  em8300-devel
-#BuildRequires:  fribidi-devel
+BuildRequires:  fribidi-devel
 #BuildRequires:  lame-devel
 #BuildRequires:  libjpeg-devel
 #BuildRequires:  libmpeg2-devel
