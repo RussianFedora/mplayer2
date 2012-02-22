@@ -5,13 +5,14 @@
 
 Name:           mplayer2
 Version:        %{realver}.%{date}git%{gitcommit}
-Release:        1%{?dist}.R
+Release:        2%{?dist}.R
 Summary:        Movie player playing most video formats and DVDs
 
 License:        GPLv3+
 URL:            http://www.mplayer2.org/
 Source0:        mplayer2-build-%{realver}.git.tar.xz
-#Source1:        mplayer.conf
+Source1:        mplayer.conf
+Source2:        input.conf
 
 BuildRequires:  yasm
 BuildRequires:  alsa-lib-devel
@@ -76,9 +77,9 @@ as Matroska external chapters.
 
 echo "--prefix=%{_prefix}
 --bindir=%{_bindir}
---datadir=%{_datadir}/mplayer2
+--datadir=%{_datadir}/%{name}
 --mandir=%{_mandir}
---confdir=%{_sysconfdir}/mplayer2
+--confdir=%{_sysconfdir}/%{name}
 --libdir=%{_libdir}
 --codecsdir=%{_libdir}/codecs
 --extra-cflags=$RPM_OPT_FLAGS
@@ -125,11 +126,14 @@ find $RPM_BUILD_ROOT%{_mandir} -name "mplayer*" | while read -r file; do \
     mv $file $(echo "$file" | sed -e "s/mplayer.1/mplayer2.1/"); \
 done
 
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/mplayer.conf
+install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/input.conf
+
 %files
 %defattr(-, root, root, -)
 %doc mplayer/AUTHORS mplayer/Copyright mplayer/LICENSE
 %{_bindir}/%{name}
-%dir %{_sysconfdir}/%{name}
+%{_sysconfdir}/%{name}/*
 %{_mandir}/man1/%{name}.1*
 %lang(cs) %{_mandir}/cs/man1/%{name}.1*
 %lang(de) %{_mandir}/de/man1/%{name}.1*
@@ -143,5 +147,8 @@ done
 
 
 %changelog
+* Wed Feb 22 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0.20120220gitfc6a9e4-2.R
+- Added conf files
+
 * Tue Feb 21 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0.20120220gitfc6a9e4-1.R
 - Initial release for Fedora
