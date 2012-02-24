@@ -51,7 +51,7 @@ BuildRequires:  live555-devel
 BuildRequires:  libdv-devel >= 0.9.5
 BuildRequires:  xvidcore-devel
 BuildRequires:  libtool
-BuildRequires:  libva-devel
+#BuildRequires:  libva-devel
 
 #BuildRequires:  em8300-devel
 BuildRequires:  fribidi-devel
@@ -91,11 +91,11 @@ echo "--prefix=%{_prefix}
 --enable-runtime-cpudetection
 " >> mplayer_options
 
-echo "--enable-vaapi
---enable-runtime-cpudetect
+#echo "--enable-vaapi
+echo "--enable-runtime-cpudetect
 " >> libav_options
 
-sed -i -e "s|'--disable-devices', '--disable-vaapi'|'--disable-devices'|" "script/libav-config" ;
+#sed -i -e "s|'--disable-devices', '--disable-vaapi'|'--disable-devices'|" "script/libav-config" ;
 
 # fix man pages not being UTF8
 doconv() {
