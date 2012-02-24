@@ -127,8 +127,8 @@ find $RPM_BUILD_ROOT%{_mandir} -name "mplayer*" | while read -r file; do \
     mv $file $(echo "$file" | sed -e "s/mplayer.1/mplayer2.1/"); \
 done
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/mplayer.conf
-install %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/input.conf
+install -D -m0644 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/mplayer.conf
+install -D -m0644 %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/input.conf
 
 install -D -m0644 %{SOURCE3} %{buildroot}%{_datadir}/applications/%{name}.desktop
 
@@ -141,7 +141,7 @@ update-desktop-database -q
 %defattr(-, root, root, -)
 %doc mplayer/AUTHORS mplayer/Copyright mplayer/LICENSE
 %{_bindir}/%{name}
-%{_sysconfdir}/%{name}/*
+%config(noreplace) %{_sysconfdir}/%{name}/*
 %{_mandir}/man1/%{name}.1*
 %lang(cs) %{_mandir}/cs/man1/%{name}.1*
 %lang(de) %{_mandir}/de/man1/%{name}.1*
@@ -152,6 +152,7 @@ update-desktop-database -q
 %lang(pl) %{_mandir}/pl/man1/%{name}.1*
 %lang(ru) %{_mandir}/ru/man1/%{name}.1*
 %lang(zh_CN) %{_mandir}/zh_CN/man1/%{name}.1*
+%{_datadir}/applications/%{name}.desktop
 
 
 %changelog
