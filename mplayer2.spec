@@ -1,16 +1,17 @@
-%global         date 20120220
-%global         gitcommit fc6a9e4
+%global         date 20120328
+%global         gitcommit 6c96298
+%global         gitcommit_full 6c962988199066cf5b6f3428c31ec7f4752023ee
 %global         realver 2.0
 
 
 Name:           mplayer2
 Version:        %{realver}.%{date}git%{gitcommit}
-Release:        3%{?dist}.R
+Release:        1%{?dist}
 Summary:        Movie player playing most video formats and DVDs
 
 License:        GPLv3+
 URL:            http://www.mplayer2.org/
-Source0:        mplayer2-build-%{realver}.git.tar.xz
+Source0:        http://git.mplayer2.org/mplayer2-build/snapshot/%{name}-build-%{gitcommit_full}.tar.bz2
 Source1:        mplayer.conf
 Source2:        input.conf
 Source3:        mplayer2.desktop
@@ -74,7 +75,7 @@ of features not available in other Unix players, such
 as Matroska external chapters.
 
 %prep
-%setup -q -n mplayer2-build-2.0.git
+%setup -q -n mplayer2-build-%{gitcommit_full}
 
 echo "--prefix=%{_prefix}
 --bindir=%{_bindir}
@@ -90,6 +91,7 @@ echo "--prefix=%{_prefix}
 --charset= utf8
 --language-man=all
 --enable-runtime-cpudetection
+--enable-live
 " >> mplayer_options
 
 #echo "--enable-vaapi
@@ -111,7 +113,6 @@ for lang in ru ; do doconv koi8-r utf-8 $lang ; done
 
 %build
 # mp3lib looks broken => disabling
-
 
 make %{?_smp_mflags}
 
@@ -156,6 +157,9 @@ update-desktop-database -q
 
 
 %changelog
+* Wed Mar 28 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0.20120328git6c96298-1.R
+- Update to last revision
+
 * Fri Feb 24 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0.20120220gitfc6a9e4-3.R
 - Added desktop file
 
