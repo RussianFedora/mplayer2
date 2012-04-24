@@ -1,6 +1,6 @@
-%global         date 20120328
-%global         gitcommit 6c96298
-%global         gitcommit_full 6c962988199066cf5b6f3428c31ec7f4752023ee
+%global         date 20120424
+%global         gitcommit b711624
+%global         gitcommit_full b711624ef350d1e971f5fcc57eb4af9f74233d2
 %global         realver 2.0
 
 
@@ -157,6 +157,9 @@ update-desktop-database -q
 
 
 %changelog
+* Tue Apr 24 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0.20120328gitb711624-1.R
+- Update to last revision
+
 * Wed Mar 28 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0.20120328git6c96298-1.R
 - Update to last revision
 
