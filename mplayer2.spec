@@ -1,11 +1,11 @@
-%global         date 20120424
-%global         gitcommit b711624
-%global         gitcommit_full b711624ef350d1e971f5fcc57eb4af9f74233d2
+%global         date 20120504
+%global         gitcommit f64a4e9
+%global         gitcommit_full f64a4e9931428de0f308f6ed0a0144edb8ce961
 %global         realver 2.0
 
 
 Name:           mplayer2
-Version:        %{realver}.%{date}git%{gitcommit}
+Version:        %{realver}-%{date}git%{gitcommit}
 Release:        1%{?dist}
 Summary:        Movie player playing most video formats and DVDs
 
@@ -157,7 +157,10 @@ update-desktop-database -q
 
 
 %changelog
-* Tue Apr 24 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0.20120328gitb711624-1.R
+* Fri May 04 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0-20120504gitf64a4e9-1.R
+- Update to last revision
+
+* Tue Apr 24 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0.20120424gitb711624-1.R
 - Update to last revision
 
 * Wed Mar 28 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0.20120328git6c96298-1.R
