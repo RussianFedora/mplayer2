@@ -10,7 +10,6 @@ Summary:        Movie player playing most video formats and DVDs
 
 License:        GPLv3+
 URL:            http://www.mplayer2.org/
-Source0:        mplayer2-build-%{version}.git.tar.xz
 Source0:        http://git.mplayer2.org/mplayer2-build/snapshot/mplayer2-build-%{gitcommit_full}.tar.bz2
 Source1:        mplayer.conf
 Source2:        input.conf
