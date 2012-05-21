@@ -5,12 +5,13 @@
 
 Name:           mplayer2
 Version:        2.0
-Release:        1.%{date}git%{gitcommit}%{?dist}
+Release:        9.%{date}git%{gitcommit}%{?dist}
 Summary:        Movie player playing most video formats and DVDs
 
 License:        GPLv3+
 URL:            http://www.mplayer2.org/
 Source0:        mplayer2-build-%{version}.git.tar.xz
+Source0:        http://git.mplayer2.org/mplayer2-build/snapshot/mplayer2-build-%{gitcommit_full}.tar.bz2
 Source1:        mplayer.conf
 Source2:        input.conf
 Source3:        mplayer2.desktop
@@ -74,7 +75,7 @@ of features not available in other Unix players, such
 as Matroska external chapters.
 
 %prep
-%setup -q -n mplayer2-build-2.0.git
+%setup -q
 
 echo "--prefix=%{_prefix}
 --bindir=%{_bindir}
