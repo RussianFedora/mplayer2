@@ -75,7 +75,7 @@ of features not available in other Unix players, such
 as Matroska external chapters.
 
 %prep
-%setup -q
+%setup -q -n %{name}-build-%{gitcommit_full}
 
 echo "--prefix=%{_prefix}
 --bindir=%{_bindir}
