@@ -1,12 +1,13 @@
-%global         date 20120521
-%global         gitcommit ab6542d
-%global         gitcommit_full ab6542dbc0130ff8dbede27896eb7dd925332c68
+%global         date 20120626
+%global         gitcommit e198fd0
+%global         gitcommit_full e198fd0f2d3de4afb460671ce2586b9c6010ea1c
 
 
 Name:           mplayer2
 Version:        2.0
-Release:        9.%{date}git%{gitcommit}%{?dist}
+Release:        1.%{date}git%{gitcommit}%{?dist}
 Summary:        Movie player playing most video formats and DVDs
+Epoch:          1
 
 License:        GPLv3+
 URL:            http://www.mplayer2.org/
@@ -156,6 +157,10 @@ update-desktop-database -q
 
 
 %changelog
+* Tue Jun 26 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0-1.20120626gite198fd0.R
+- Update to last revision
+- Bump epoch
+
 * Fri May 21 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0-1.20120504gitab6542d.R
 - Update to last revision
 
