@@ -1,6 +1,6 @@
-%global         date 20120626
-%global         gitcommit e198fd0
-%global         gitcommit_full e198fd0f2d3de4afb460671ce2586b9c6010ea1c
+%global         date 20120820
+%global         gitcommit c62dbb8
+%global         gitcommit_full c62dbb829347eaf4040fcc77b636255675d5cafc
 
 
 Name:           mplayer2
@@ -11,7 +11,7 @@ Epoch:          1
 
 License:        GPLv3+
 URL:            http://www.mplayer2.org/
-Source0:        http://git.mplayer2.org/mplayer2-build/snapshot/mplayer2-build-%{gitcommit_full}.tar.bz2
+Source0:        http://git.mplayer2.org/mplayer2-build/snapshot/mplayer2-build-2.0.git.tar.xz
 Source1:        mplayer.conf
 Source2:        input.conf
 Source3:        mplayer2.desktop
@@ -49,10 +49,11 @@ BuildRequires:  faad2-devel
 BuildRequires:  ladspa-devel
 BuildRequires:  libbs2b-devel
 BuildRequires:  libnemesi-devel
-BuildRequires:  live555-devel
+#BuildRequires:  live555-devel
 BuildRequires:  libdv-devel >= 0.9.5
 BuildRequires:  xvidcore-devel
 BuildRequires:  libtool
+BuildRequires:  python3
 #BuildRequires:  libva-devel
 
 #BuildRequires:  em8300-devel
@@ -75,7 +76,7 @@ of features not available in other Unix players, such
 as Matroska external chapters.
 
 %prep
-%setup -q -n %{name}-build-%{gitcommit_full}
+%setup -q -n %{name}-build-2.0.git
 
 echo "--prefix=%{_prefix}
 --bindir=%{_bindir}
@@ -101,24 +102,22 @@ echo "--enable-runtime-cpudetect
 #sed -i -e "s|'--disable-devices', '--disable-vaapi'|'--disable-devices'|" "script/libav-config" ;
 
 # fix man pages not being UTF8
-doconv() {
-    iconv -f $1 -t $2 -o mplayer/DOCS/man/$3/mplayer.1.utf8 mplayer/DOCS/man/$3/mplayer.1 && \
-    mv mplayer/DOCS/man/$3/mplayer.1.utf8 mplayer/DOCS/man/$3/mplayer.1
-}
-
-for lang in de es fr it ; do doconv iso-8859-1 utf-8 $lang ; done
-for lang in hu pl ; do doconv iso-8859-2 utf-8 $lang ; done
-for lang in ru ; do doconv koi8-r utf-8 $lang ; done
+# doconv() {
+#     iconv -f $1 -t $2 -o mplayer/DOCS/man/$3/mplayer.1.utf8 mplayer/DOCS/man/$3/mplayer.1 && \
+#     mv mplayer/DOCS/man/$3/mplayer.1.utf8 mplayer/DOCS/man/$3/mplayer.1
+# }
+# 
+# for lang in de es fr it ; do doconv iso-8859-1 utf-8 $lang ; done
+# for lang in hu pl ; do doconv iso-8859-2 utf-8 $lang ; done
+# for lang in ru ; do doconv koi8-r utf-8 $lang ; done
 
 
 %build
 # mp3lib looks broken => disabling
-
 make %{?_smp_mflags}
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 
 # move man pages and bindir
@@ -130,7 +129,6 @@ done
 
 install -D -m0644 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/mplayer.conf
 install -D -m0644 %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/%{name}/input.conf
-
 install -D -m0644 %{SOURCE3} %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 
@@ -139,24 +137,26 @@ update-desktop-database -q
 
 
 %files
-%defattr(-, root, root, -)
 %doc mplayer/AUTHORS mplayer/Copyright mplayer/LICENSE
 %{_bindir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}/*
 %{_mandir}/man1/%{name}.1*
-%lang(cs) %{_mandir}/cs/man1/%{name}.1*
-%lang(de) %{_mandir}/de/man1/%{name}.1*
-%lang(es) %{_mandir}/es/man1/%{name}.1*
-%lang(fr) %{_mandir}/fr/man1/%{name}.1*
-%lang(hu) %{_mandir}/hu/man1/%{name}.1*
-%lang(it) %{_mandir}/it/man1/%{name}.1*
-%lang(pl) %{_mandir}/pl/man1/%{name}.1*
-%lang(ru) %{_mandir}/ru/man1/%{name}.1*
-%lang(zh_CN) %{_mandir}/zh_CN/man1/%{name}.1*
+# %lang(cs) %{_mandir}/cs/man1/%{name}.1*
+# %lang(de) %{_mandir}/de/man1/%{name}.1*
+# %lang(es) %{_mandir}/es/man1/%{name}.1*
+# %lang(fr) %{_mandir}/fr/man1/%{name}.1*
+# %lang(hu) %{_mandir}/hu/man1/%{name}.1*
+# %lang(it) %{_mandir}/it/man1/%{name}.1*
+# %lang(pl) %{_mandir}/pl/man1/%{name}.1*
+# %lang(ru) %{_mandir}/ru/man1/%{name}.1*
+#%lang(zh_CN) %{_mandir}/zh_CN/man1/%{name}.1*
 %{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Mon Aug 20 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0-1.20120820gitc62dbb8.R
+- Update to last revision
+
 * Tue Jun 26 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0-1.20120626gite198fd0.R
 - Update to last revision
 - Bump epoch
