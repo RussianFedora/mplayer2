@@ -33,7 +33,7 @@ BuildRequires:  svgalib-devel
 BuildRequires:  libmng-devel
 BuildRequires:  giflib-devel
 BuildRequires:  SDL-devel
-BuildRequires:  pulseaudio-lib-devel
+BuildRequires:  pulseaudio-libs-devel
 BuildRequires:  libbluray-devel
 BuildRequires:  libdvdnav-devel
 BuildRequires:  cdparanoia-devel
