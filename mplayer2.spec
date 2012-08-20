@@ -53,7 +53,7 @@ BuildRequires:  libnemesi-devel
 BuildRequires:  libdv-devel >= 0.9.5
 BuildRequires:  xvidcore-devel
 BuildRequires:  libtool
-BuildRequires:  python3
+#BuildRequires:  python3
 #BuildRequires:  libva-devel
 
 #BuildRequires:  em8300-devel

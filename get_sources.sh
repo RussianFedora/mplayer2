@@ -8,7 +8,12 @@ NAME=${ORIGNAME}-${VERSION}.git
 rm -rf ${ORIGNAME}
 git clone git://git.mplayer2.org/mplayer2-build.git &>/dev/null
 cd $ORIGNAME
-sed -i -e "s|#!/usr/bin/env python3|#!/usr/bin/env python3|" "init" ;
+sed -i -e "s|#!/usr/bin/env python3|#!/usr/bin/env python|" "clean" ;
+sed -i -e "s|#!/usr/bin/env python3|#!/usr/bin/env python|" "init" ;
+sed -i -e "s|#!/usr/bin/env python3|#!/usr/bin/env python|" "script/libav-config" ;
+sed -i -e "s|#!/usr/bin/env python3|#!/usr/bin/env python|" "script/update" ;
+sed -i -e "s|#!/usr/bin/env python3|#!/usr/bin/env python|" "script/mplayer-config" ;
+sed -i -e "s|#!/usr/bin/env python3|#!/usr/bin/env python|" "script/export" ;
 ./init --shallow
 cd ..
 mv ${ORIGNAME} ${NAME}
