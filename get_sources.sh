@@ -15,6 +15,9 @@ sed -i -e "s|#!/usr/bin/env python3|#!/usr/bin/env python|" "script/update" ;
 sed -i -e "s|#!/usr/bin/env python3|#!/usr/bin/env python|" "script/mplayer-config" ;
 sed -i -e "s|#!/usr/bin/env python3|#!/usr/bin/env python|" "script/export" ;
 ./init --shallow
+#sed -i -e "s|#!/usr/bin/env python3|#!/usr/bin/env python|" "mplayer/TOOLS/matroska.py" ;
+#sed -i -e "s|#!/usr/bin/env python3|#!/usr/bin/env python|" "mplayer/TOOLS/file2string.py" ;
+#sed -i -e "s|#!/usr/bin/env python3|#!/usr/bin/env python|" "mplayer/TOOLS/vdpau_functions.py" ;
 cd ..
 mv ${ORIGNAME} ${NAME}
 
