@@ -1,6 +1,6 @@
-%global         date 20120820
-%global         gitcommit c62dbb8
-%global         gitcommit_full c62dbb829347eaf4040fcc77b636255675d5cafc
+%global         date 20121114
+%global         gitcommit 96c3415
+%global         gitcommit_full 96c34153cf8d6acc20590143e6585b439f9698df
 
 
 Name:           mplayer2
@@ -54,6 +54,7 @@ BuildRequires:  libdv-devel >= 0.9.5
 BuildRequires:  xvidcore-devel
 BuildRequires:  libtool
 BuildRequires:  python3
+BuildRequires:  python-docutils
 #BuildRequires:  libva-devel
 
 #BuildRequires:  em8300-devel
@@ -90,13 +91,15 @@ echo "--prefix=%{_prefix}
 --enable-radio-capture
 --enable-translation
 --charset= utf8
---language-man=all
+#--language-man=all
 --enable-runtime-cpudetection
---enable-live
+#--enable-live
 " >> mplayer_options
 
 #echo "--enable-vaapi
 echo "--enable-runtime-cpudetect
+--disable-static
+--enable-shared
 " >> libav_options
 
 #sed -i -e "s|'--disable-devices', '--disable-vaapi'|'--disable-devices'|" "script/libav-config" ;
@@ -154,6 +157,9 @@ update-desktop-database -q
 
 
 %changelog
+* Wed Nov 14 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0-1.20121114git96c3415.R
+- Update to last revision
+
 * Mon Aug 20 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0-1.20120820gitc62dbb8.R
 - Update to last revision
 
