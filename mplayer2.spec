@@ -5,7 +5,7 @@
 
 Name:           mplayer2
 Version:        2.0
-Release:        1.%{date}git%{gitcommit}%{?dist}
+Release:        2.%{date}git%{gitcommit}%{?dist}
 Summary:        Movie player playing most video formats and DVDs
 Epoch:          1
 
@@ -98,8 +98,6 @@ echo "--prefix=%{_prefix}
 
 #echo "--enable-vaapi
 echo "--enable-runtime-cpudetect
---disable-static
---enable-shared
 " >> libav_options
 
 #sed -i -e "s|'--disable-devices', '--disable-vaapi'|'--disable-devices'|" "script/libav-config" ;
@@ -144,19 +142,13 @@ update-desktop-database -q
 %{_bindir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}/*
 %{_mandir}/man1/%{name}.1*
-# %lang(cs) %{_mandir}/cs/man1/%{name}.1*
-# %lang(de) %{_mandir}/de/man1/%{name}.1*
-# %lang(es) %{_mandir}/es/man1/%{name}.1*
-# %lang(fr) %{_mandir}/fr/man1/%{name}.1*
-# %lang(hu) %{_mandir}/hu/man1/%{name}.1*
-# %lang(it) %{_mandir}/it/man1/%{name}.1*
-# %lang(pl) %{_mandir}/pl/man1/%{name}.1*
-# %lang(ru) %{_mandir}/ru/man1/%{name}.1*
-#%lang(zh_CN) %{_mandir}/zh_CN/man1/%{name}.1*
 %{_datadir}/applications/%{name}.desktop
 
 
 %changelog
+* Thu Nov 15 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0-2.20121114git96c3415.R
+- correct shared/static build
+
 * Wed Nov 14 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0-1.20121114git96c3415.R
 - Update to last revision
 
