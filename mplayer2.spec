@@ -5,7 +5,7 @@
 
 Name:           mplayer2
 Version:        2.0
-Release:        2.%{date}git%{gitcommit}%{?dist}
+Release:        1.%{date}git%{gitcommit}%{?dist}
 Summary:        Movie player playing most video formats and DVDs
 Epoch:          1
 
@@ -146,7 +146,7 @@ update-desktop-database -q
 
 
 %changelog
-* Thu Mar 21 2013 Vasiliy N. Glazov <vascom2@gmail.com> 2.0-2.20130321gitcf2fb74.R
+* Thu Mar 21 2013 Vasiliy N. Glazov <vascom2@gmail.com> 2.0-1.20130321gitcf2fb74.R
 - Update to last revision
 
 * Thu Nov 15 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0-2.20121114git96c3415.R
