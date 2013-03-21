@@ -1,6 +1,6 @@
-%global         date 20121114
-%global         gitcommit 96c3415
-%global         gitcommit_full 96c34153cf8d6acc20590143e6585b439f9698df
+%global         date 20130321
+%global         gitcommit cf2fb74
+%global         gitcommit_full cf2fb74acd4052f7e89fbf17126471259cdab2d6
 
 
 Name:           mplayer2
@@ -146,6 +146,9 @@ update-desktop-database -q
 
 
 %changelog
+* Thu Nov 15 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0-2.20130321gitcf2fb74.R
+- Update to last revision
+
 * Thu Nov 15 2012 Vasiliy N. Glazov <vascom2@gmail.com> 2.0-2.20121114git96c3415.R
 - correct shared/static build
 
