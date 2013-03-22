@@ -81,7 +81,7 @@ as Matroska external chapters.
 
 echo "--prefix=%{_prefix}
 --bindir=%{_bindir}
---datadir=%{_datadir}/%{name}
+#--datadir=%{_datadir}/%{name}
 --mandir=%{_mandir}
 --confdir=%{_sysconfdir}/%{name}
 --libdir=%{_libdir}
