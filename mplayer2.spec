@@ -5,7 +5,7 @@
 
 Name:           mplayer2
 Version:        2.0
-Release:        1.%{date}git%{gitcommit}%{?dist}
+Release:        %{date}git%{gitcommit}.1%{?dist}
 Summary:        Movie player playing most video formats and DVDs
 Epoch:          1
 
